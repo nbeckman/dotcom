@@ -1,0 +1,55 @@
+<HTML>
+<head>
+<style type="text/css">
+body {background-color:#000000}
+p    {color: #ffffff}
+pre  {color: #ffffff}
+</style>
+<title>
+rand_lex.mll
+</title>
+</head>
+<body>
+<pre><font color="#ff0000">
+(* rand.mll *)
+(* This is the definition of the file that is the input to ocamllex *)
+(* It is used to create a lexer. *)
+(* This file is full of REGULAR_EXPRESSIONS that are needed to 
+   create TOKENS *)
+(* This file is an attempt to figure out how to use ML while at the same
+   time actually solving this problem that Rand had earlier. The idea
+   is to figure out when an expression has a string operator in it. 
+   This of course will be no help to Rand because he needs one in C++, but
+   all of the concepts will be the same. *)
+</font>
+
+{
+  open Rand_parse
+  exception Eof
+}
+
+rule token = parse
+    [<font color="#ff00ff">' '</font> <font color="#ff00ff">'\t'</font>]    { token lexbuf }
+  | [<font color="#ff00ff">'\n'</font>]        { <font color="#cccc00">EOL</font> }
+  | <font color="#ff00ff">'$'</font>[<FONT COLOR="#FF00FF">'A'</FONT>-<FONT COLOR="#FF00FF">'Z'</FONT> <font color="#ff00ff">'a'</font>-<font color="#ff00ff">'z'</font>][<FONT COLOR="#FF00FF">'A'</FONT>-<FONT COLOR="#FF00FF">'Z'</FONT> <font color="#ff00ff">'a'</font>-<font color="#ff00ff">'z'</font> <font color="#ff00ff">'0'</font>-<font color="#ff00ff">'9'</font>]   { <font color="#cccc00">ID</font> }
+
+  | [<font color="#ff00ff">'0'</font>-<font color="#ff00ff">'9'</font>]+<font color="#ff00ff">'.'</font>[<font color="#ff00ff">'0'</font>-<font color="#ff00ff">'9'</font>]+                         { <font color="#cccc00">FLOAT</font> }
+
+  | [<font color="#ff00ff">'0'</font>-<font color="#ff00ff">'9'</font>]+     { <font color="#cccc00">INT</font> }
+  | <font color="#ff00ff">'"'</font> [^ <font color="#ff00ff">'"'</font> <font color="#ff00ff">'\\'</font> <font color="#ff00ff">'\n'</font> <font color="#ff00ff">'\r'</font>]* <font color="#ff00ff">'"'</font> { <font color="#cccc00">STRING</font> }
+  | <font color="#ff00ff">'%'</font>            { <font color="#cccc00">MOD</font> }
+  | <font color="#ff00ff">'.'</font>            { <font color="#cccc00">DOT</font> }
+  | <font color="#ff00ff">'+'</font>            { <font color="#cccc00">PLUS</font> }
+  | <font color="#ff00ff">'-'</font>            { <font color="#cccc00">MINUS</font> }
+  | <font color="#ff00ff">'*'</font>            { <font color="#cccc00">TIMES</font> }
+  | <font color="#ff00ff">'/'</font>            { <font color="#cccc00">DIV</font> }
+  | <font color="#ff00ff">'('</font>            { <font color="#cccc00">LPAREN</font> }
+  | <font color="#ff00ff">')'</font>            { <font color="#cccc00">RPAREN</font> }
+  | _              { token lexbuf } <font color="#ff0000">(* Normally . matches any char... *)</font>
+  | eof            { raise Eof }
+
+</pre>
+
+</body>
+</body>
+</html>

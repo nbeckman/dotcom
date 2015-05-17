@@ -1,0 +1,184 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>UrbanHike: Past Hikes</title>
+    <style type="text/css" media="screen">
+    @import "http://www.urbanhike.org/style.css";
+    v\:* {
+      behavior:url(#default#VML);
+    }
+    </style>
+<!--
+CS SCRIPT
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA6COKgVDGvp1G4OJnZD0XbhR-FIUxrZQZOKsSuR8SyzsYZNsUqBR_yPeDK0AVfLO9l6pjyJLH6I8WPA"
+            type="text/javascript"></script>
+-->
+<!--    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA6COKgVDGvp1G4OJnZD0XbhSdd_2NRSXD2FMsXmevU6UYi8z70RS6krPX-Mf1T5W9c2p5clH-qWWkow"
+      type="text/javascript"></script> -->
+<!--
+URBAN HIKE KEY -->
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA6COKgVDGvp1G4OJnZD0XbhSdd_2NRSXD2FMsXmevU6UYi8z70RS6krPX-Mf1T5W9c2p5clH-qWWkow"
+      type="text/javascript"></script>
+
+    <script type="text/javascript">
+    //<![CDATA[
+
+    function load() {
+      if (GBrowserIsCompatible()) {
+
+        var map = new GMap2(document.getElementById("map"));
+        map.addControl(new GSmallMapControl());
+        map.addControl(new GMapTypeControl());
+        map.setCenter(new GLatLng(40.45, -79.95), 11);
+	map.setMapType(G_SATELLITE_TYPE);
+
+        activeRoute = null; 
+
+        function buildHike(hike) {
+           var point = new GLatLng(parseFloat(hike.getAttribute("lat")),
+	                            parseFloat(hike.getAttribute("lng")));
+            var marker = new GMarker(point);
+            map.addOverlay(marker);
+
+            var point_list = hike.getAttribute("points");
+            var level_list = hike.getAttribute("levels");
+
+            //Prepare HTML text box.
+	    var html_label = "<div style=\"color:#000000;\"><b>"
+            html_label += hike.getAttribute("name") + "</b><br>";
+
+            // What extras do we have?
+            var map1 = hike.getAttribute("map1");
+            var map2 = hike.getAttribute("map2");
+            var photos = hike.getAttribute("photos");
+
+            if( map1 != "" || map2 != "" || photos != "" ) {
+              html_label+= "Recreate this fascinating hike with the attached:";
+            }
+            html_label += "</div>";
+
+            if( map1 != "" ) {
+              html_label += "<a href=\"" + map1 + "\">Map 1</a> ";
+            }
+            if( map2 != "" ) {
+              html_label += "<a href=\"" + map2 + "\">Map 2</a> ";
+            }
+            if( photos != "" ) {
+              html_label += "<a href=\"" + photos + "\">Photos</a> ";
+            }
+
+            //Add listener
+	    GEvent.addListener(marker, "click", function() {
+	      if( activeRoute != null ) {
+	        map.removeOverlay(activeRoute);
+              }
+
+              map.setZoom(13);  
+              map.panTo(point);
+
+              if( point_list != "" && level_list != "" ) {
+                activeRoute = new GPolyline.fromEncoded({
+                                  color: "#FF0000",
+                                  weight: 10,
+                                  points: point_list,
+                                  levels: level_list,
+                                  zoomFactor: 32,
+                                  numLevels: 4 
+                                });
+
+                map.addOverlay( activeRoute );
+	      }
+
+              marker.openInfoWindowHtml(html_label);
+            });
+        }
+
+	GDownloadUrl("hikes.xml", function(data, responseCode) {
+	  var xml = GXml.parse(data);
+          var hikes = xml.documentElement.getElementsByTagName("hike");
+	  for( var i = 0; i < hikes.length; i++ ) {
+            buildHike(hikes[i]);
+          }
+        });
+    }
+    else {
+     // NOT Compatible
+     document.backup.src="http://www.urbanhike.org/images/pasthikes.gif"
+    }
+
+  }
+    //]]>
+    </script>
+  </head>
+
+  <body onload="load()" onunload="GUnload()">
+    
+
+
+
+<body bgcolor="#333333" text="#FFFFFF" background="http://www.urbanhike.org/images/map.gif" link="#99CC00" leftmargin="0" topmargin="0" rightmargin="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="104" valign="bottom"
+     style="background-image:url('http://www.urbanhike.org/images/photos.gif');background-repeat:no-repeat;background-color:#8EA857">&nbsp;</td>
+  </tr>
+
+  <tr> 
+    <td background="http://www.urbanhike.org/images/logo_bkgd.gif" height="97" valign="bottom"><a href="index.html"><img src="http://www.urbanhike.org/images/logo.gif" width="536" height="97" border="0"></a></td>
+  </tr>
+  <tr> 
+    <td background="http://www.urbanhike.org/images/gray.gif" height="36" valign="bottom"><img src="http://www.urbanhike.org/images/links.gif" width="873" height="36" usemap="#Map" border="0"></td>
+  </tr>
+  <tr> 
+    <td valign="top"> 
+      <table border="0" cellspacing="0" cellpadding="10" align="center" width="70%">
+        <tr> 
+          <td valign="top">
+
+            <h1>Past Hikes</h1>
+            <p>We've been to a lot of places and seen a lot of stuff! Click on the
+    map to see some of our walking routes. Or click
+    below: </p>
+    <ul>
+    <li><a href="http://urbanhike.org/maps/Aspinwallmap.pdf">Aspinwall/Sharpsburg</a></p>
+    <li><a href="http://urbanhike.org/maps/Braddockmap.pdf">Braddock</a></p>
+    <li><a href="http://urbanhike.org/maps/CarnegieMap.pdf">Carnegie</a></p>
+    <li><a href="http://urbanhike.org/maps/EastAlleghenymap.pdf">East Allegheny/Fineview</a></p>
+    <li><a href="http://urbanhike.org/maps/Hazelwood.pdf">Hazelwood</a></p>
+    <li><a href="http://urbanhike.org/HighlandPark.html">Highland Park</a></p>
+    <li><a href="http://urbanhike.org/Homestead.html">Homestead</a></p>
+    <li><a href="http://urbanhike.org/maps/LawrencevilleScavHuntmap.pdf">Lawrenceville</a></p>
+    <li><a href="http://urbanhike.org/maps/MtWashingtonmap.pdf">Mount Washington</a></p>
+    <li><a href="http://urbanhike.org/maps/McKeesRocks.pdf">McKees Rocks</a></p>
+    <li><a href="http://urbanhike.org/maps/oaklandscavhunt.pdf">Oakland</a></p>
+    <li><a href="http://urbanhike.org/maps/OakmontMap.pdf">Oakmont</a></p>
+    <li><a href="http://urbanhike.org/ObservatoryHill.html">Observatory Hill</a></p>
+    <li><a href="http://urbanhike.org/maps/ssscavhunt.pdf">South Side</a></p>
+    <li><a href="http://urbanhike.org/maps/SpringGardenMap.pdf">Spring Garden</a></p>
+    <li><a href="http://urbanhike.org/maps/StripScavHuntmap.pdf">Strip</a></p>
+    <li><a href="http://urbanhike.org/troyhill.htm">Troy Hill/Millvale</a></p>
+    <li><a href="http://urbanhike.org/Westendelliot.html">West End/Elliot</a></p>
+    </td>
+          <td valign="top">
+<div id="map" style="width: 463px; height: 368px"><img name="backup"></div>
+</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<map name="Map">
+  <area shape="rect" coords="139,1,289,33" href="upcoming.html" target="_self">
+  <area shape="rect" coords="308,1,428,36" href="past.html">
+
+  <area shape="rect" coords="441,2,615,33" href="newslinks.html" target="_self">
+  <area shape="rect" coords="622,2,759,33" href="journal.html">
+  <area shape="rect" coords="770,4,874,32" href="about.html" target="_self">
+</map>
+
+</body>
+
+  </body>
+</html>

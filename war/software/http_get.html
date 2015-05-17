@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<!-- Created by htmlize-1.31 in css mode. -->
+<html>
+  <head>
+    <title>http_get.sml</title>
+    <style type="text/css">
+    <!--
+      body {
+        color: #cccccc;
+        background-color: #262626;
+        font-weight: bold;
+      }
+      .function-name {
+        /* font-lock-function-name-face */
+        color: #87cefa;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #00ffff;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #ffa07a;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #eedd82;
+      }
+
+      a {
+        color: inherit;
+        background-color: inherit;
+        font: inherit;
+        text-decoration: inherit;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    -->
+    </style>
+  </head>
+  <body>
+    <pre>
+<span class="keyword">local</span> 
+    <span class="keyword">val</span> <span class="variable-name">str</span> = <span class="string">"GET / HTTP/1.1 \nHost:www.cnet.com\n\n"</span>;
+    <span class="keyword">val</span> <span class="variable-name">b_vec</span> = (Byte.stringToBytes str);
+    <span class="keyword">val</span> <span class="variable-name">entr</span> = (NetHostDB.getByName <span class="string">"www.cnet.com"</span>);
+    <span class="keyword">val</span> <span class="variable-name">msg</span> = Word8VectorSlice.slice (b_vec,0,NONE);
+<span class="keyword">in</span> 
+
+<span class="keyword">val</span> <span class="variable-name">entr</span> = (NetHostDB.getByName <span class="string">"www.cnet.com"</span>);
+
+<span class="keyword">fun</span> <span class="function-name">run</span> NONE = 
+    (print <span class="string">"Something went wrong in the NS part of things.\n"</span>)
+
+  | run (SOME(e)) = 
+    <span class="keyword">let</span> 
+        <span class="keyword">val</span> <span class="variable-name">addr</span> = (NetHostDB.addr e)
+        <span class="keyword">val</span> <span class="variable-name">socket_addr</span> = INetSock.toAddr (addr,80)
+        <span class="keyword">val</span> <span class="variable-name">socket</span> = INetSock.TCP.socket ()
+    <span class="keyword">in</span>
+        (print (NetHostDB.toString addr)); 
+        (print <span class="string">"\n"</span>);
+        (Socket.connect (socket, socket_addr));
+        ignore (Socket.sendVec (socket, msg));
+
+        <span class="keyword">let</span> 
+            <span class="keyword">fun</span> <span class="function-name">do_loop</span> f = 
+                (f ();
+                 do_loop f)
+        <span class="keyword">in</span>
+            do_loop (<span class="keyword">fn</span> () =&gt; 
+                        <span class="keyword">let</span> <span class="keyword">val</span> <span class="variable-name">vec</span> = (Socket.recvVec (socket,Word8Vector.maxLen))
+                        <span class="keyword">in</span>
+                            <span class="keyword">if</span> (Word8Vector.length vec) &lt;&gt; 0
+                            <span class="keyword">then</span> print ((Byte.bytesToString vec))
+                            <span class="keyword">else</span> ()
+                        <span class="keyword">end</span>)
+        <span class="keyword">end</span>
+
+        (Socket.close socket)
+    <span class="keyword">end</span>
+            
+
+<span class="keyword">end</span> 
+
+
+</pre>
+  </body>
+</html>

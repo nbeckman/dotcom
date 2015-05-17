@@ -1,0 +1,291 @@
+execve("/bin/more", ["more", "papers.html"], [/* 51 vars */]) = 0
+uname({sys="Linux", node="gs5048.sp.cs.cmu.edu", ...}) = 0
+brk(0)                                  = 0x50b000
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x2aaaaaaab000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=185257, ...}) = 0
+mmap(NULL, 185257, PROT_READ, MAP_PRIVATE, 3, 0) = 0x2aaaaaaac000
+close(3)                                = 0
+open("/lib64/libtermcap.so.2", O_RDONLY) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\240\20@"..., 640) = 640
+fstat(3, {st_mode=S_IFREG|0755, st_size=15744, ...}) = 0
+mmap(0x3d5a400000, 1060400, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x3d5a400000
+mprotect(0x3d5a403000, 1048112, PROT_NONE) = 0
+mmap(0x3d5a500000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0) = 0x3d5a500000
+close(3)                                = 0
+open("/lib64/tls/libc.so.6", O_RDONLY)  = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0p\305qY="..., 640) = 640
+lseek(3, 624, SEEK_SET)                 = 624
+read(3, "\4\0\0\0\20\0\0\0\1\0\0\0GNU\0\0\0\0\0\2\0\0\0\4\0\0\0"..., 32) = 32
+fstat(3, {st_mode=S_IFREG|0755, st_size=1611160, ...}) = 0
+mmap(0x3d59700000, 2297832, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x3d59700000
+mprotect(0x3d59828000, 1085416, PROT_NONE) = 0
+mmap(0x3d59900000, 184320, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x100000) = 0x3d59900000
+mmap(0x3d5992d000, 16360, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x3d5992d000
+close(3)                                = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x2aaaaaada000
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x2aaaaaadb000
+mprotect(0x3d59927000, 16384, PROT_READ) = 0
+mprotect(0x3d59614000, 4096, PROT_READ) = 0
+arch_prctl(0x1002, 0x2aaaaaadada0)      = 0
+munmap(0x2aaaaaaac000, 185257)          = 0
+brk(0)                                  = 0x50b000
+brk(0x52c000)                           = 0x52c000
+open("/usr/lib/locale/locale-archive", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=38661840, ...}) = 0
+mmap(NULL, 38661840, PROT_READ, MAP_PRIVATE, 3, 0) = 0x2aaaaaadc000
+close(3)                                = 0
+ioctl(1, SNDCTL_TMR_TIMEBASE or TCGETS, {B38400 opost isig icanon echo ...}) = 0
+open("/etc/termcap", O_RDONLY)          = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=791844, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x2aaaacfbb000
+lseek(3, 0, SEEK_SET)                   = 0
+read(3, "######## TERMINAL TYPE DESCRIPTI"..., 4096) = 4096
+read(3, ".\n#\n# Further note: older versio"..., 4096) = 4096
+read(3, "RETATION OF USER CAPABILITIES\n#\n"..., 4096) = 4096
+read(3, "# Not that anyone should care.  "..., 4096) = 4096
+read(3, "\nklone+sgr-dumb|attribute contro"..., 4096) = 4096
+read(3, "stic assumptions:\\\n\t:am:xo:\\\n\t:c"..., 4096) = 4096
+read(3, "2=\\E*B:\\\n\t:s3=\\E+B:ta=\\E[I:tc=pc"..., 4096) = 4096
+read(3, "E[K:ch=\\E[%i%dG:\\\n\t:cl=\\E[H\\E[J:"..., 4096) = 4096
+read(3, ":NC#18:it#8:\\\n\t:&7=^Z:@7=\\E[4~:A"..., 4096) = 4096
+read(3, " we don\'t want padding character"..., 4096) = 4096
+read(3, "is actually describes the generi"..., 4096) = 4096
+read(3, "t\". Rather than the VT100 graphi"..., 4096) = 4096
+read(3, "l to keypad mode.\n#\n# (iris-ansi"..., 4096) = 4096
+read(3, "s case with the :ic: capability,"..., 4096) = 4096
+read(3, "E[%dD:RA=\\E[?7l:RI=\\E[%dC:SA=\\E["..., 4096) = 4096
+read(3, "\nx68k|x68k-ite|NetBSD/x68k ITE:\\"..., 4096) = 4096
+read(3, "8=\\E[T:k9=\\E[U:kD=\\177:\\\n\t:kI=\\E"..., 4096) = 4096
+read(3, "6) \n# Bug: The <op> capability r"..., 4096) = 4096
+read(3, "\n# applications such as vi will "..., 4096) = 4096
+read(3, "model the arrow keys as suggeste"..., 4096) = 4096
+read(3, "ed as a status line.\n# We put th"..., 4096) = 4096
+read(3, "L=\\E[%dM:DO=\\E[%dB:F1=\\E[23~:F2="..., 4096) = 4096
+read(3, "YRIX.  Otherwise, use Adam Thomp"..., 4096) = 4096
+read(3, "(B:al=\\E[L:as=\\E(0:cd=\\E[J:ce=\\E"..., 4096) = 4096
+read(3, "rminals, though some\n# emulators"..., 4096) = 4096
+read(3, "E[2~:kN=\\E[6~:kP=\\E[5~:\\\n\t:kb=^H"..., 4096) = 4096
+read(3, "rmcap entries.  However, the\n# e"..., 4096) = 4096
+read(3, "\n\t:FP=\\E\\003\\E!:FQ=\\E\\003\\E@:FR="..., 4096) = 4096
+read(3, "sc=\\E7:\\\n\t:se=\\E[m:sf=^J:so=\\E[7"..., 4096) = 4096
+read(3, "#     4       Shift + Alt\n#     "..., 4096) = 4096
+read(3, "33?7h\\E>\\E7\\233?1;3;4;6l\\2334l\\2"..., 4096) = 4096
+lseek(3, 0, SEEK_SET)                   = 0
+read(3, "######## TERMINAL TYPE DESCRIPTI"..., 4096) = 4096
+read(3, ".\n#\n# Further note: older versio"..., 4096) = 4096
+read(3, "RETATION OF USER CAPABILITIES\n#\n"..., 4096) = 4096
+read(3, "# Not that anyone should care.  "..., 4096) = 4096
+read(3, "\nklone+sgr-dumb|attribute contro"..., 4096) = 4096
+read(3, "stic assumptions:\\\n\t:am:xo:\\\n\t:c"..., 4096) = 4096
+read(3, "2=\\E*B:\\\n\t:s3=\\E+B:ta=\\E[I:tc=pc"..., 4096) = 4096
+read(3, "E[K:ch=\\E[%i%dG:\\\n\t:cl=\\E[H\\E[J:"..., 4096) = 4096
+read(3, ":NC#18:it#8:\\\n\t:&7=^Z:@7=\\E[4~:A"..., 4096) = 4096
+read(3, " we don\'t want padding character"..., 4096) = 4096
+read(3, "is actually describes the generi"..., 4096) = 4096
+read(3, "t\". Rather than the VT100 graphi"..., 4096) = 4096
+read(3, "l to keypad mode.\n#\n# (iris-ansi"..., 4096) = 4096
+read(3, "s case with the :ic: capability,"..., 4096) = 4096
+read(3, "E[%dD:RA=\\E[?7l:RI=\\E[%dC:SA=\\E["..., 4096) = 4096
+read(3, "\nx68k|x68k-ite|NetBSD/x68k ITE:\\"..., 4096) = 4096
+read(3, "8=\\E[T:k9=\\E[U:kD=\\177:\\\n\t:kI=\\E"..., 4096) = 4096
+read(3, "6) \n# Bug: The <op> capability r"..., 4096) = 4096
+read(3, "\n# applications such as vi will "..., 4096) = 4096
+read(3, "model the arrow keys as suggeste"..., 4096) = 4096
+read(3, "ed as a status line.\n# We put th"..., 4096) = 4096
+read(3, "L=\\E[%dM:DO=\\E[%dB:F1=\\E[23~:F2="..., 4096) = 4096
+read(3, "YRIX.  Otherwise, use Adam Thomp"..., 4096) = 4096
+read(3, "(B:al=\\E[L:as=\\E(0:cd=\\E[J:ce=\\E"..., 4096) = 4096
+read(3, "rminals, though some\n# emulators"..., 4096) = 4096
+read(3, "E[2~:kN=\\E[6~:kP=\\E[5~:\\\n\t:kb=^H"..., 4096) = 4096
+read(3, "rmcap entries.  However, the\n# e"..., 4096) = 4096
+read(3, "\n\t:FP=\\E\\003\\E!:FQ=\\E\\003\\E@:FR="..., 4096) = 4096
+read(3, "sc=\\E7:\\\n\t:se=\\E[m:sf=^J:so=\\E[7"..., 4096) = 4096
+close(3)                                = 0
+munmap(0x2aaaacfbb000, 4096)            = 0
+ioctl(0, TIOCGWINSZ, {ws_row=24, ws_col=80, ws_xpixel=0, ws_ypixel=0}) = 0
+ioctl(1, TIOCGWINSZ, {ws_row=24, ws_col=80, ws_xpixel=0, ws_ypixel=0}) = 0
+ioctl(0, SNDCTL_TMR_TIMEBASE or TCGETS, {B38400 opost isig icanon echo ...}) = 0
+ioctl(2, SNDCTL_TMR_TIMEBASE or TCGETS, {B38400 opost isig icanon echo ...}) = 0
+rt_sigaction(SIGQUIT, {0x405a70, [QUIT], SA_RESTART|0x4000000}, {SIG_DFL}, 8) = 0
+rt_sigaction(SIGINT, {0x403bc0, [INT], SA_RESTART|0x4000000}, {SIG_DFL}, 8) = 0
+rt_sigaction(SIGWINCH, {0x401f20, [WINCH], SA_RESTART|0x4000000}, {SIG_DFL}, 8) = 0
+rt_sigaction(SIGTSTP, {SIG_IGN}, {SIG_DFL}, 8) = 0
+rt_sigaction(SIGTSTP, {0x405b60, [TSTP], SA_RESTART|0x4000000}, {SIG_IGN}, 8) = 0
+ioctl(2, SNDCTL_TMR_START or TCSETS, {B38400 opost isig -icanon -echo ...}) = 0
+ioctl(2, SNDCTL_TMR_TIMEBASE or TCGETS, {B38400 opost isig -icanon -echo ...}) = 0
+stat("papers.html", {st_mode=S_IFREG|0777, st_size=3843, ...}) = 0
+open("papers.html", O_RDONLY)           = 3
+fstat(3, {st_mode=S_IFREG|0777, st_size=3843, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x2aaaacfbb000
+lseek(3, 0, SEEK_SET)                   = 0
+read(3, "<!DOCTYPE HTML PUBLIC \"-//W3C//D"..., 4096) = 3843
+lseek(3, 3843, SEEK_SET)                = 3843
+rt_sigprocmask(SIG_BLOCK, NULL, [], 8)  = 0
+open("/usr/lib64/gconv/gconv-modules.cache", O_RDONLY) = 4
+fstat(4, {st_mode=S_IFREG|0644, st_size=21546, ...}) = 0
+mmap(NULL, 21546, PROT_READ, MAP_SHARED, 4, 0) = 0x2aaaacfbc000
+close(4)                                = 0
+fstat(1, {st_mode=S_IFCHR|0600, st_rdev=makedev(136, 6), ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x2aaaacfc2000
+write(1, "<!DOCTYPE HTML PUBLIC \"-//W3C//D"..., 63) = 63
+write(1, "<html>\n", 7)                 = 7
+write(1, "\t<head>\n", 8)               = 8
+write(1, "\t\t<title>Papers</title><LINK hre"..., 67) = 67
+write(1, "\"stylesheet\"></head>\n", 21) = 21
+write(1, "\t<body bottomMargin=\"0\" leftMarg"..., 74) = 74
+write(1, "gin=\"0\" rightMargin=\"0\" marginwi"..., 58) = 58
+write(1, "\t\t<table height=\"143\" cellSpacin"..., 67) = 67
+write(1, "border=\"0\">\n", 12)         = 12
+write(1, "\t\t\t<tr vAlign=\"top\">\n", 21) = 21
+write(1, "\t\t\t\t<td width=\"780\">\n", 21) = 21
+write(1, "\t\t\t\t\t<!----- Insert your logo be"..., 46) = 46
+write(1, "e templogotop.jpg to blanklogo.j"..., 81) = 81
+write(1, "s editor -----------------------"..., 81) = 81
+write(1, "=\"blanklogo.jpg\" width=\"780\" bor"..., 41) = 41
+write(1, "\t\t\t\t\t<!-------------------------"..., 46) = 46
+write(1, "--------------------------------"..., 39) = 39
+write(1, "\t\t\t</tr>\n", 9)            = 9
+write(1, "\t\t</table>\n", 11)          = 11
+write(1, "\t\t<table cellSpacing=\"0\" cellPad"..., 66) = 66
+write(1, "\t\t\t<tr vAlign=\"top\">\n", 21) = 21
+write(1, "\t\t\t\t<td width=\"175\">\n", 21) = 21
+rt_sigprocmask(SIG_BLOCK, NULL, [], 8)  = 0
+open("/usr/share/locale/locale.alias", O_RDONLY) = 4
+fstat(4, {st_mode=S_IFREG|0644, st_size=2528, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x2aaaacfc3000
+read(4, "# Locale name alias data base.\n#"..., 4096) = 2528
+read(4, "", 4096)                       = 0
+close(4)                                = 0
+munmap(0x2aaaacfc3000, 4096)            = 0
+open("/usr/share/locale/en_US.UTF-8/LC_MESSAGES/util-linux.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/en_US.utf8/LC_MESSAGES/util-linux.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/en_US/LC_MESSAGES/util-linux.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/en.UTF-8/LC_MESSAGES/util-linux.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/en.utf8/LC_MESSAGES/util-linux.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/en/LC_MESSAGES/util-linux.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+write(1, "\33[7m--More--(23%)\33[m", 20) = 20
+read(2, " ", 1)                         = 1
+write(1, "\r\33[K\t\t\t\t\t<table cellSpacing=\"0\" "..., 50) = 50
+write(1, "idth=\"175\" border=\"0\">\n", 23) = 23
+write(1, "\t\t\t\t\t\t<tr vAlign=\"top\">\n", 24) = 24
+write(1, "\t\t\t\t\t\t\t<td width=\"175\">\n", 24) = 24
+write(1, "\t\t\t\t\t\t\t\t<!--------------\n", 25) = 25
+write(1, "---------- Menu section, links g"..., 81) = 81
+write(1, "--------------------------------"..., 68) = 68
+write(1, "\t\t\t\t\t\t</tr>\n", 12)     = 12
+write(1, "\t\t\t\t\t</table>\n", 14)    = 14
+write(1, "\t\t\t\t</td>\n", 10)         = 10
+write(1, "\t\t\t\t<td width=\"510\">\n", 21) = 21
+write(1, "\t\t\t\t\t<table cellSpacing=\"5\" cell"..., 46) = 46
+write(1, "idth=\"510\" border=\"0\">\n", 23) = 23
+write(1, "\t\t\t\t\t\t<tr vAlign=\"top\">\n", 24) = 24
+write(1, "\t\t\t\t\t\t\t<td width=\"510\">\n", 24) = 24
+write(1, "\t\t\t\t\t\t\t\t<!--------------\n", 25) = 25
+write(1, "---------- Content zone, add you"..., 78) = 78
+write(1, "\t\t\t\t\t\t\t\t<center>\n", 17) = 17
+write(1, "\t\t\t\t\t\t\t\t\t<h3>\n", 14) = 14
+write(1, "\t\t\t\t\t\t\t\t\t\t\n", 11)  = 11
+write(1, "Papers</h3>\n", 12)           = 12
+write(1, "\t\t\t\t\t\t\t\t</center>\n", 18) = 18
+rt_sigprocmask(SIG_BLOCK, NULL, [], 8)  = 0
+write(1, "\33[7m--More--(40%)\33[m", 20) = 20
+read(2, " ", 1)                         = 1
+write(1, "\r\33[K\t\t\t\t\t\t\t\t<P align=\"center\n", 29) = 29
+write(1, "\">\n", 3)                    = 3
+write(1, "\t\t\t\t\t\t\t\t\t<hr>\n", 14) = 14
+write(1, "\t\t\t\t\t\t\t\t<P></P>\n", 16) = 16
+write(1, "\t\t\t\t\t\t\t\t<P>Here are all \n", 25) = 25
+write(1, "the papers&nbsp;that I have co-a"..., 69) = 69
+write(1, "\t\t\t\t\t\t\t\t\tall writ\n", 18) = 18
+write(1, "ten&nbsp;while working for the C"..., 70) = 70
+write(1, "\t\t\t\t\t\t\t\t\tProfesso\n", 18) = 18
+write(1, "r Nenad Medvidovic. &nbsp;</P>\n", 31) = 31
+write(1, "\t\t\t\t\t\t\t\t<hr>\n", 13)  = 13
+write(1, "\t\t\t\t\t\t\t\t<P></P>\n", 16) = 16
+write(1, "\t\t\t\t\t\t\t\t<P>C. Mattmann, \n", 25) = 25
+write(1, "S. Malek, N. Beckman, M. Mikic-R"..., 81) = 81
+write(1, "href=\"http://sunset.usc.edu/publ"..., 81) = 81
+write(1, "-509.pdf\">GLIDE: A Grid-based, L"..., 81) = 81
+write(1, "vironments.</A></Strong> In Proc"..., 81) = 81
+write(1, "), Amsterdam, the Netherlands, F"..., 69) = 69
+write(1, "\t\t\t\t\t\t\t\t\t<BR>\n", 14) = 14
+write(1, "\t\t\t\t\t\t\t\t\t<BR>\n", 14) = 14
+write(1, "\t\t\t\t\t\t\t\t</P>\n", 13)  = 13
+write(1, "\t\t\t\t\t\t\t\t<hr>\n", 13)  = 13
+rt_sigprocmask(SIG_BLOCK, NULL, [], 8)  = 0
+write(1, "\33[7m--More--(60%)\33[m", 20) = 20
+read(2, " ", 1)                         = 1
+write(1, "\r\33[K\t\t\t\t\t\t\t\t<P></P>\n", 20) = 20
+write(1, "\t\t\t\t\t\t\t\t<P><STRONG><A hr\n", 25) = 25
+write(1, "ef=\"papers/paper.pdf\">A Tailorab"..., 77) = 77
+write(1, "\t\t\t\t\t\t\t\t\t\t\n", 11)  = 11
+write(1, "\tDeployment Architectures in Hig"..., 74) = 74
+write(1, "his \n", 5)                   = 5
+write(1, "\t\t\t\t\t\t\t\t\tpaper wa\n", 18) = 18
+write(1, "s submitted to and accepted by <"..., 81) = 81
+write(1, "he conference on component \n", 28) = 28
+write(1, "\t\t\t\t\t\t\t\t\tdeployme\n", 18) = 18
+write(1, "nt. Authors: Marija Mikic-Rakic,"..., 69) = 69
+write(1, "\t\t\t\t\t\t\t\t\tMedvidov\n", 18) = 18
+write(1, "ic&nbsp;&nbsp;\n", 15)        = 15
+write(1, "\t\t\t\t\t\t\t\t\t<BR>\n", 14) = 14
+write(1, "\t\t\t\t\t\t\t\t\t<BR>\n", 14) = 14
+write(1, "\t\t\t\t\t\t\t\t</P>\n", 13)  = 13
+write(1, "\t\t\t\t\t\t\t\t<HR>\n", 13)  = 13
+write(1, "\t\t\t\t\t\t\t\t<P><STRONG><A hr\n", 25) = 25
+write(1, "ef=\"papers/paper2.pdf\">Improving"..., 81) = 81
+write(1, " via Run-Time \n", 15)        = 15
+write(1, "\t\t\t\t\t\t\t\t\t\t\n", 11)  = 11
+write(1, "Monitoring and Analysis</a> - </"..., 81) = 81
+rt_sigprocmask(SIG_BLOCK, NULL, [], 8)  = 0
+write(1, "\33[7m--More--(79%)\33[m", 20) = 20
+read(2, " ", 1)                         = 1
+write(1, "\r\r\33[K\n", 6)              = 6
+write(1, "\t\t\t\t\t\t\t\t\tby <a hr\n", 18) = 18
+write(1, "ef=\"http://www.cs.kent.ac.uk/eve"..., 81) = 81
+write(1, "s on Architecting Dependable Sys"..., 51) = 51
+write(1, "\t\t\t\t\t\t\t\t\tAuthors:\n", 18) = 18
+write(1, " Marija Mikic-Rakic, Sam Malek, "..., 57) = 57
+write(1, "\t\t\t\t\t\t\t\t\tMedvidov\n", 18) = 18
+write(1, "ic&nbsp;&nbsp;\n", 15)        = 15
+write(1, "\t\t\t\t\t\t\t\t\t<BR>\n", 14) = 14
+write(1, "\t\t\t\t\t\t\t\t\t<BR>\n", 14) = 14
+write(1, "\t\t\t\t\t\t\t\t\t<BR>\n", 14) = 14
+write(1, "\t\t\t\t\t\t\t\t\t<BR>\n", 14) = 14
+write(1, "\t\t\t\t\t\t\t\t\t<BR>\n", 14) = 14
+write(1, "\t\t\t\t\t\t\t\t\t<BR>\n", 14) = 14
+write(1, "\t\t\t\t\t\t\t\t\t<BR>\n", 14) = 14
+write(1, "\t\t\t\t\t\t\t\t\t<BR>\n", 14) = 14
+write(1, "\t\t\t\t\t\t\t\t\t<BR>\n", 14) = 14
+write(1, "\t\t\t\t\t\t\t\t\t<BR>\n", 14) = 14
+write(1, "\t\t\t\t\t\t\t\t\t<BR>\n", 14) = 14
+write(1, "\t\t\t\t\t\t\t\t\t<BR>\n", 14) = 14
+write(1, "\t\t\t\t\t\t\t\t\t<BR>\n", 14) = 14
+write(1, "\t\t\t\t\t\t\t\t\t<BR>\n", 14) = 14
+rt_sigprocmask(SIG_BLOCK, NULL, [], 8)  = 0
+write(1, "\33[7m--More--(91%)\33[m", 20) = 20
+read(2, " ", 1)                         = 1
+write(1, "\r\33[K\t\t\t\t\t\t\t\t\t<BR>\n", 18) = 18
+write(1, "\t\t\t\t\t\t\t\t</P>\n", 13)  = 13
+write(1, "\t\t\t\t\t\t\t\t<!--------------\n", 25) = 25
+write(1, "--------------------------------"..., 78) = 78
+write(1, "\t\t\t\t\t\t\t\t<p align=\"right\"\n", 25) = 25
+write(1, "><a href=\"http://www.steves-temp"..., 68) = 68
+write(1, "\t\t\t\t\t\t\t</td>\n", 13)   = 13
+write(1, "\t\t\t\t\t\t</tr>\n", 12)     = 12
+write(1, "\t\t\t\t\t</table>\n", 14)    = 14
+write(1, "\t\t\t\t</td>\n", 10)         = 10
+write(1, "\t\t\t</tr>\n", 9)            = 9
+write(1, "\t\t</table>\n", 11)          = 11
+write(1, "\t</body>\n", 9)              = 9
+write(1, "</html>\n", 8)                = 8
+read(3, "", 4096)                       = 0
+rt_sigprocmask(SIG_BLOCK, NULL, [], 8)  = 0
+close(3)                                = 0
+munmap(0x2aaaacfbb000, 4096)            = 0
+ioctl(2, SNDCTL_TMR_START or TCSETS, {B38400 opost isig icanon echo ...}) = 0
+ioctl(2, SNDCTL_TMR_TIMEBASE or TCGETS, {B38400 opost isig icanon echo ...}) = 0
+munmap(0x2aaaacfc2000, 4096)            = 0
+exit_group(0, 0, 0x3d5992b8c0, 0x1, 0x3c <unfinished ... exit status 0>

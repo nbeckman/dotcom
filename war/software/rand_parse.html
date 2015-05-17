@@ -1,0 +1,65 @@
+<HTML>
+<head>
+<style type="text/css">
+body {background-color:#000000}
+p    {color: #ffffff}
+pre  {color: #ffffff}
+</style>
+<title>
+rand_parse.mly
+</title>
+</head>
+<body>
+<pre><font color="#ff0000">
+/* rand_parse.mly */
+/* This file defines a GRAMAR the language that we are parsing. */
+/* On the right in curly brakets are the actions to be taken upon
+   finding the given rule on the left. If were were creating an
+   abstract syntax tree, then right here on the right is where we
+   would say things like 'create new addition node.' */
+/* This dope file is the parser for a simple little program that checks to
+   see if there are any string opeators in a given expression */
+</font>
+
+%token EOL INT MOD DOT PLUS MINUS FLOAT
+%token TIMES DIV LPAREN RPAREN STRING
+%token ID EOL
+%left PLUS MINUS DOT
+%left TIMES DIV MOD
+%nonassoc UMINUS
+%start main
+%type <bool> main
+
+%%
+main:
+    expr EOL                { $1    }
+
+<font color="#ff0000">
+/* Because this is a functional language, I can just say for the
+   action true or false or the calculation that produces the value.
+   This is the functional equivalent of having an explicit return
+   value. However, if we were doing this in C++, we'd most likely
+   have some global variable is_string_op_in_expr and for action to
+   be taken for the DOT token we'd have:
+   is_string_op_in_expr = true; 
+*/
+</font>
+
+expr:
+    INT                     { <font color="#cccc00">false</font> }
+  | FLOAT                   { <font color="#cccc00">false</font> }
+  | ID                      { <font color="#cccc00">false</font> }
+  | STRING                  { <font color="#cccc00">false</font> }
+  | LPAREN expr RPAREN      { $2    }
+  | expr DOT expr           { <font color="#cccc00">true</font>  }
+  | expr PLUS expr          { $1 || $3 }
+  | expr MINUS expr         { $1 || $3 }
+  | expr TIMES expr         { $1 || $3 }
+  | expr DIV   expr         { $1 || $3 }
+  | MINUS expr %prec UMINUS { $2 }
+;
+</pre>
+
+</body>
+</body>
+</html>

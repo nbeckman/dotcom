@@ -1,0 +1,30 @@
+<html>
+<head>
+<style type="text/css">
+body {background-color:#000000}
+pre  {color:#FFFFFF}
+</style>
+<title>rand_analyzer.ml</title>
+</head>
+<body>
+<pre>
+<font color="#FF0000">(* rand_analyzer.ml *)</font>
+<font color="#FF0000">(* ML program for telling if a given expression has a 
+   string op in it *)</font>
+
+<font color="#FF00FF">let</font> _ =
+  <font color="#FF00FF">try</font>
+    <font color="#FF00FF">let</font> lexbuf = Lexing.from_channel stdin <font color="#FF00FF">in</font>
+    <font color="#FF00FF">while</font> <font color="#FF00FF">true</font> <font color="#FF00FF">do</font>
+      <font color="#FF00FF">let</font> result = Rand_parse.main Rand_lex.token lexbuf <font color="#FF00FF">in</font>
+        <font color="#FF00FF">match</font> result <font color="#FF00FF">with</font>
+            <font color="#FF00FF">true</font> -> print_endline <font color="#CCCC00">"Yes there was a string op."</font>;
+	      flush stdout
+	  | <font color="#FF00FF">false</font> -> print_endline <font color="#CCCC00">"No there was no string op."</font>;
+	      flush stdout
+    <font color="#FF00FF">done</font>
+  <font color="#FF00FF">with</font> Rand_lex.Eof ->
+    exit 0
+</pre>
+</body>
+</html>

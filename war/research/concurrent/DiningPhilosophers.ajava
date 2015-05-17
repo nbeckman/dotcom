@@ -1,0 +1,138 @@
+
+/*
+ * Dining Philosophers in AtomJava!
+ * Nels Beckman
+ *
+ */
+public class DiningPhilosophers {
+	
+	class Fork {
+
+		private boolean available;
+
+		public Fork(boolean available) { 
+			this.available = available; 
+		}
+
+		void put() {
+			atomic {
+				this.available = true;
+			}
+		}
+
+		void get() {
+			atomic {
+				this.available = false;
+			}
+		}
+
+		boolean isAvailable() {
+			return this.available;
+		}
+	}
+	
+	class PhilosopherState {
+		public static final int THINKING = 1;
+		public static final int HUNGRY = 2;
+		public static final int HASFORKS = 3;
+		public static final int EATING = 4;
+		public static final int IDLE = 5;
+	}
+
+	
+	
+	class Philosopher extends Thread {
+		
+		/*
+		 * states thinking, hungry, eating, idle;
+		 */
+		
+		Fork leftFork;
+		Fork rightFork;
+		
+		int myState;
+		
+		public Philosopher(Fork leftFork, Fork rightFork) {
+			this.leftFork = leftFork;
+			this.rightFork = rightFork;
+			this.myState = PhilosopherState.IDLE;
+		}
+		
+		public void run() {
+			this.beAPhilosopher();
+		}
+		
+		void beAPhilosopher() {
+			for(int i=0; i<10; i++) {
+				this.think();
+				this.getForks();
+				this.eat();				
+				this.releaseForks();
+			}
+		}
+		
+		void think() {
+			this.myState = PhilosopherState.THINKING;
+			System.out.println("Philosopher " + this.hashCode() + " is thinking.");
+			try {Thread.sleep(10);} catch(InterruptedException e){}
+			this.myState = PhilosopherState.HUNGRY;
+			System.out.println("Philosopher " + this.hashCode() + " is hungry.");
+		}
+		
+		
+		void getForks() {
+			while( this.myState != PhilosopherState.HASFORKS ) {
+				atomic {
+					if( this.leftFork.isAvailable() &&
+							this.rightFork.isAvailable() ) {
+						this.leftFork.get();
+						this.rightFork.get();
+						this.myState = PhilosopherState.HASFORKS;
+					}
+				}
+			}
+			
+			System.out.println("Philosopher " + this.hashCode() + " got the forks.");
+		}
+		
+		void releaseForks() {
+			atomic {
+				this.leftFork.put();
+				this.rightFork.put();
+			}
+			
+			System.out.println("Philosopher " + this.hashCode() + " dropped the forks.");
+		}
+		
+		void eat() {
+			this.myState = PhilosopherState.EATING;
+			System.out.println("Philosopher " + this.hashCode() + " eating.");
+			try {Thread.sleep(10);} catch(InterruptedException e){}
+			this.myState = PhilosopherState.IDLE;
+		}
+	}
+	
+	public static void main(String[] args) {
+		(new DiningPhilosophers()).begin();
+	}
+	
+	public void begin() {
+		Fork f1 = new Fork(true);
+		Fork f2 = new Fork(true);
+		Fork f3 = new Fork(true);
+		Fork f4 = new Fork(true);
+		Fork f5 = new Fork(true);
+		
+		Philosopher p1 = new Philosopher(f1,f2);
+		Philosopher p2 = new Philosopher(f2,f3);
+		Philosopher p3 = new Philosopher(f3,f4);
+		Philosopher p4 = new Philosopher(f4,f5);
+		Philosopher p5 = new Philosopher(f5,f1);
+		
+		p1.start();
+		p2.start();
+		p3.start();
+		p4.start();
+		p5.start();		
+	}
+}

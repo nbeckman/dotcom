@@ -1,0 +1,207 @@
+<html>
+<head>
+  <title>
+  NIMBY: Concurrent Protocol Verification
+  </title>
+
+<style type="text/css">
+a:link {color: #FFFFFF}
+a:visited {color: #FFFFFF}
+a:hover {color: #CCFFCC}
+a:active {color: #CCFFCC}
+
+body {
+  background-color:#151515;
+  color:#a0a0a0;
+}
+ 
+p {
+  background-color:#404040;
+  color:#CCCCFF;
+  font-size:14;
+  font-weight:bold;
+  width:65%;
+}
+ 
+h2 {
+  font-family:sans-serif;
+}
+ 
+h3 {
+  font-family:sans-serif;
+}
+ 
+table {
+  width:85%;
+  background-color:#889944;
+}
+ 
+td {
+  background-color:#AAAAFF;
+  color:black;
+  font-size:12;
+}
+ 
+td.first {
+  width:10%;
+}
+ 
+td.check {
+  width:2%;
+}
+ 
+td.filename {
+  font-family:monospace;
+}
+ 
+td.true {
+  background-color:#0000BB;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>Verification of Object Protocols in Concurrent Programs</h2>
+
+<p>
+This page presents a collection of Java programs that have been
+specified and/or verified using Plural/NIMBY. Full details of the tool
+can be found in several locations, but the best starting point is the
+<a href="http://code.google.com/p/pluralism/">Plural project page</a>
+on Google Code. This includes the full source
+for both Plural (single-threaded protocol verification) and NIMBY
+(concurrent protocol verification), as well as links to various
+papers. More importantly, that page is easier to update and is
+connected to the SVN repository, so it is much more likely to be
+up-to-date!
+</p>
+
+<h3>Programs from the OOPSLA '08 Paper</h3>
+
+<p>
+These are the programs described in the OOPSLA '08 paper,
+<i>Verifying Correct Usage of Atomic Blocks and Typestate</i> by
+N. Beckman, K. Bierhoff, and J. Aldrich. These programs are part
+of the Plural/NIMBY test suite, and therefore should verify with
+the current version of NIMBY at all times.
+</p>
+
+<table>
+<tr style="font-weight:bold;">
+<td>Example Name</td><td>Source</td><td>Notes</td>
+</tr>
+
+<tr>
+<td class="first">Chat</td>
+<td class="filename">
+<a href="http://code.google.com/p/pluralism/source/browse/trunk/PluralTestsAndExamples/src/edu/cmu/cs/nimby/test/oopsla/Chat.java">Chat.java</a>
+</td>
+<td>
+The Chat example is used as a running example throughout the paper. The
+main difference here is that we use Java annotation syntax as required
+by the NIMBY tool.
+</td>
+</tr>
+
+<tr>
+<td class="first">JGroups JChannel</td>
+<td class="filename">
+<a href="http://code.google.com/p/pluralism/source/browse/trunk/PluralTestsAndExamples/src/edu/cmu/cs/nimby/test/oopsla/JChannel.java">JChannel.java</a><br>
+<a href="http://code.google.com/p/pluralism/source/browse/trunk/PluralTestsAndExamples/src/edu/cmu/cs/nimby/test/oopsla/CausalDemo.java">CausalDemo.java</a>
+<td>
+These two files represent the specification of the JChannel class, an abstraction
+of a network connection from the 
+<a href="http://www.jgroups.org">JGroups</a> project, and the implementation
+of one of the demos that is provided with JGroups. This demo, CausalDemo, makes
+use of the the JChannel protocol.
+</td>
+</tr>
+
+<tr>
+<td class="first">Request Processor</td>
+<td class="filename">
+<a href="http://code.google.com/p/pluralism/source/browse/trunk/PluralTestsAndExamples/src/edu/cmu/cs/nimby/test/oopsla/RequestProcessor.java">RequestProcessor.java</a>
+</td>
+<td>
+Request Processor is a simple, toy program that was specified and verified to
+illustrate that our approach could handle object invariants of mutable,
+thread-shared objects.
+</td>
+</tr>
+
+<tr>
+<td class="first">Reservation Manager</td>
+<td class="filename">
+<a href="http://code.google.com/p/pluralism/source/browse/trunk/PluralTestsAndExamples/src/edu/cmu/cs/nimby/test/oopsla/ReservationManager.java">ReservationManager.java</a>
+</td>
+<td>
+Reservation manager was the original program that was going to be used
+as a running example throughout the paper. It is still somewhat interesting,
+but, frankly, not as realistic as the Chat program.
+</td>
+</tr>
+
+</table>
+
+<h3>Other Case Studies</h3>
+
+<p>
+The following are a list of other programs that I have specified and/or
+verified with Plural/NIMBY as part of my research.
+</p>
+
+<table>
+<tr style="font-weight:bold;">
+<td>Example Name</td><td>Source</td><td>Notes</td>
+</tr>
+
+<tr>
+<td class="first">Blocking Queue</td>
+<td class="filename">
+<a href="http://code.google.com/p/pluralism/source/browse/trunk/PluralTestsAndExamples/src/com/holub/asynch/Blocking_queue.java">Blocking_queue.java</a><br>
+<a href="http://code.google.com/p/pluralism/source/browse/trunk/PluralTestsAndExamples/src/edu/cmu/cs/nimby/test/interesting/OneReaderOneWrtier.java">OneReaderOneWriter.java</a>
+</td>
+<td>This example is the full example that was presented in the OOPSLA 2008
+talk on NIMBY. It's a thread-shared blocking queue. Note that the
+blocking queue class was written by Allen I. Holub, and is used with
+permission. Thanks! The verification of both the implementation side and
+the client work. The client is in the OneReaderOneWriter file.
+</td>
+</tr>
+
+<tr>
+<td class="first">Thread Shared and Back</td>
+<td class="filename">
+<a href="http://code.google.com/p/pluralism/source/browse/trunk/PluralTestsAndExamples/src/edu/cmu/cs/nimby/test/interesting/ThreadSharedAndBack.java">ThreadSharedAndBack.java</a>
+</td>
+<td>
+In this example, we take an object that is thread local, share it between two
+threads, and then reconstruct the unique, thread local permission. This is
+a sort of litmis test for many concurrent analyses. Note that we are using the
+parameter "capture" mechanism of PLURAL in order to ensure that the fraction
+that comes back from the other thread is the same. We haven't completely verified
+the implementation of the join method, but the fact that the join method
+requires a full permission and does not return it should ensure that no
+permissions could be duplicated.
+</td>
+</tr>
+<tr>
+<td class="first">ConsList</td>
+<td class="filename">
+<a href="http://code.google.com/p/pluralism/source/browse/trunk/PluralTestsAndExamples/src/edu/cmu/cs/plural/util/ConsList.java">ConsList.java</a><br>
+<a href="http://code.google.com/p/pluralism/source/browse/trunk/PluralTestsAndExamples/src/edu/cmu/cs/plural/util/Lambda.java">Lambda.java</a><br>
+<a href="http://code.google.com/p/pluralism/source/browse/trunk/PluralTestsAndExamples/src/edu/cmu/cs/plural/util/Lambda2.java">Lambda2.java</a><br>
+</td>
+<td>
+A functional-style cons list with a very simple protocol: EMPTY or NONEMPTY. There
+are also some interesting protocols in the two iterator methods, although they
+have already been specified by Kevin in earlier work.
+</td>
+</tr>
+</table>
+
+</body>
+
+</html>

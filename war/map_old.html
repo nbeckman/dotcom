@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>UrbanHike: Past Hikes</title>
+    <style type="text/css">
+    v\:* {
+      behavior:url(#default#VML);
+    }
+    </style>
+    <style type="text/css" media="screen"> @import "style.css";</style>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA6COKgVDGvp1G4OJnZD0XbhR-FIUxrZQZOKsSuR8SyzsYZNsUqBR_yPeDK0AVfLO9l6pjyJLH6I8WPA"
+            type="text/javascript"></script>
+<!--    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA6COKgVDGvp1G4OJnZD0XbhSdd_2NRSXD2FMsXmevU6UYi8z70RS6krPX-Mf1T5W9c2p5clH-qWWkow"
+      type="text/javascript"></script> -->
+    <script type="text/javascript">
+    //<![CDATA[
+
+    function load() {
+      if (GBrowserIsCompatible()) {
+
+        //All hike locations in Decimal Lat/Long
+	//TODO: Put these in a file that can be loaded
+        var troy_hill = new GLatLng(40.46868056, -79.9792)
+	var braddock = new GLatLng(40.40348056, -79.86874167);
+	var carnegie = new GLatLng(40.40866111, -80.08374167);
+	var highlandp = new GLatLng(40.477825, -79.91815556);
+	var homestead = new GLatLng(40.40588333, -79.91222222);
+	var oakland = new GLatLng(40.44429444, -79.95316111);
+	var oakmont = new GLatLng(40.43990556, -80.05606944);
+	var o_hill = new GLatLng(40.48971667, -80.017625);
+	var ss = new GLatLng(40.42870278, -79.97378611);
+	var spring_h = new GLatLng(40.46008611, -79.99164167);
+	var west_end = new GLatLng(40.43903056, -80.03541944);
+
+	var troy_hill_marker = new GMarker(troy_hill);
+	var braddock_marker = new GMarker(braddock);
+	var carnegie_marker = new GMarker(carnegie); 
+	var highlandp_marker = new GMarker(highlandp);
+	var homestead_marker = new GMarker(homestead);
+	var oakland_marker = new GMarker(oakland);
+	var oakmont_marker = new GMarker(oakmont);
+	var o_hill_marker = new GMarker(o_hill);
+	var ss_marker = new GMarker(ss);
+	var spring_h_marker = new GMarker(spring_h);
+	var west_end_marker = new GMarker(west_end);
+
+        var map = new GMap2(document.getElementById("map"));
+        map.addControl(new GSmallMapControl());
+        map.addControl(new GMapTypeControl());
+        map.setCenter(new GLatLng(40.45, -79.95), 11);
+	map.setMapType(G_SATELLITE_TYPE);
+
+	// Add all of the markers to the map
+	map.addOverlay(troy_hill_marker);
+	map.addOverlay(braddock_marker);
+	map.addOverlay(carnegie_marker);
+	map.addOverlay(highlandp_marker);
+	map.addOverlay(homestead_marker);
+	map.addOverlay(oakland_marker);
+	map.addOverlay(oakmont_marker);
+	map.addOverlay(o_hill_marker);
+	map.addOverlay(ss_marker);
+	map.addOverlay(spring_h_marker);
+	map.addOverlay(west_end_marker);
+
+	// Add routes
+	var hparkRoute = new GPolyline.fromEncoded({
+         color: "#FF0000",
+	  weight: 10,
+	  points: "_ubvFv_xfN}AxJrBtAiDnX~GbFjCdDdBmCrEdGmE~Gv@lAnNxCvGxAlAyJjn@hNxP_o@aG_DfAmErJfFxInDxB}LgAUc@|DcT}HXiGnBgQsHwBRqCvB?fA_DoDm@EbA}EcAkApLsEuAe@vSeCuAaGlSyG_DzFaTaMoHh@kOgK{IuJ]lBhNoE?uA~Bh@~E|IdGzKlIkApEaFoAeAdDsIyAyHxHoOmR",
+	  levels: "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+	  zoomFactor: 32,
+	  numLevels: 4
+      });
+
+        var mvaleRoute = new GPolyline.fromEncoded({
+	  color: "#FF0000",
+	  weight: 10,
+	  points: "it_vFvqbgN~OnTpCbDnUhQdBfAmC@qDfKrIrAlF|C}DvFoEwFpBqDmIqFkEfAjBdFiCrBkKgF_H{K{CqD_H@gA`@_@_APsGdCiFmCeHmEcCiGy@mBzBHgA{@_PeAiG}AnP_ERy@k@o@xF{DqDsEhK_D_C`Smc@hBhB`Bc@nDu@nYrS",
+	  levels: "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+	  zoomFactor: 32,
+	  numLevels: 4
+      });
+
+        var hsteadRoute = new GPolyline.fromEncoded({
+	  color: "#FF0000",
+	  weight: 10,
+	  points: "oosuF|gufNfCm@c@_KnDQ|CIHjBzCQX|JtCoBGgFvCc@e@qOrO]V|AfDq@\\xBzK|XkMtKgOdTyCwEqGuCsD}I^u@m@iUEeCmIf@nAfa@xIdToH`IwINhP|WqDrFvH~JmVk]",
+	  levels: "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+	  zoomFactor: 32,
+	  numLevels: 4
+      });
+
+      var obshillRoute = new GPolyline.fromEncoded({
+	  color: "#FF0000",
+	  weight: 10,
+          points: "onbvFpckgNkHz@gKpNsAhN~JxChN|D|CnFbF{CdHaKJiG{BvBz@aO_IgUNmEjC_DpGxD|IeCjCqGxH~@TpG|JfBlBeAnCORvDvE~E`GIHdPwA`GNlNuCh@uArBpE~MrBlC?~BkHjDjKuAfKsBnHbp@~Av@pDw@kAfCwLnD_GhA}YxSeTpEeIxA_GxAFzD_CuCgEse@",
+	  levels: "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+	  zoomFactor: 32,
+	  numLevels: 4
+      });   
+
+      var shRoute = new GPolyline.fromEncoded({
+	  color: "#FF0000",
+	  weight: 10,
+          points: "st|uFdhfgNzBs@xBtE`BXdCsCyD_FdEdGuCrD\\nCoGiOqCrDcElLqCgAsC_FuC\\SeCsAPmCgT{B_AwHtN{F`BeBfAEvCw@dAu@fObFb@xCp@WeBdDgA|CqAaC}E_BkIhEuB|EtLrH`HnIbEUoCjIwV",
+	  levels: "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+	  zoomFactor: 32,
+	  numLevels: 4
+      });   
+
+
+      activeRoute = null;
+
+	// Add all event listeners
+        GEvent.addListener(west_end_marker, "click", function() {
+	   map.removeOverlay(activeRoute);
+
+          west_end_marker.openInfoWindowHtml("<div style=\"color:#000000;\"><b>West End/Elliot:</b><br>Recreate this fascinating hike with the attached PDF maps.</div> <a href=\"http://urbanhike.org/maps/Map6aWE.pdf\">Map1</a> <a href=\"http://urbanhike.org/maps/Map6bWE.pdf\">Map2</a>");
+        });
+
+        GEvent.addListener(spring_h_marker, "click", function() {
+	   map.removeOverlay(activeRoute);
+
+           map.addOverlay(shRoute);
+	   activeRoute = shRoute;	  
+
+	   map.panTo(spring_h);
+	   map.setZoom(13);	   
+
+          spring_h_marker.openInfoWindowHtml("<div style=\"color:#000000;\"><b>Spring Garden:</b><br>Recreate this fascinating hike with the attached</div> <a href=\"http://urbanhike.org/maps/SpringGardenMap.pdf\">PDF map</a>.");
+        });
+
+        GEvent.addListener(ss_marker, "click", function() {
+	   map.removeOverlay(activeRoute);
+
+          ss_marker.openInfoWindowHtml("<div style=\"color:#000000;\"><b>Observatory Hill:</b><br>Recreate this scavenger hunt with the attached</div> <a href=\"http://urbanhike.org/maps/ssscavhunt.pdf\">PDF map</a>.");
+        });
+
+        GEvent.addListener(o_hill_marker, "click", function() {
+	   map.removeOverlay(activeRoute);
+
+           map.addOverlay(obshillRoute);
+	   activeRoute = obshillRoute;	  
+
+	   map.panTo(o_hill);
+	   map.setZoom(13);
+
+          o_hill_marker.openInfoWindowHtml("<div style=\"color:#000000;\"><b>Observatory Hill:</b><br>Recreate this fascinating hike with the attached</div> <a href=\"http://urbanhike.org/maps/Map1OH.pdf\">PDF map</a>.");
+        });
+
+        GEvent.addListener(oakmont_marker, "click", function() {
+	   map.removeOverlay(activeRoute);
+
+          oakmont_marker.openInfoWindowHtml("<div style=\"color:#000000;\"><b>Oakmont:</b><br>Recreate this fascinating hike with the attached</div> <a href=\"http://urbanhike.org/maps/OakmontMap.pdf\">PDF map</a>.");
+        });
+
+        GEvent.addListener(oakland_marker, "click", function() {
+	   map.removeOverlay(activeRoute);
+
+          oakland_marker.openInfoWindowHtml("<div style=\"color:#000000;\"><b>Oakland:</b><br>Recreate this scavenger hunt with the attached</div> <a href=\"http://urbanhike.org/maps/oaklandscavhunt.pdf\">PDF map</a>.");
+        });
+
+        GEvent.addListener(homestead_marker, "click", function() {
+	   map.removeOverlay(activeRoute);
+
+	   map.addOverlay(hsteadRoute);
+	   activeRoute = hsteadRoute;	  
+
+	   map.panTo(homestead);
+	   map.setZoom(13);
+
+          homestead_marker.openInfoWindowHtml("<div style=\"color:#000000;\"><b>Homestead:</b><br>Recreate this fascinating hike with the attached</div> <a href=\"http://urbanhike.org/maps/Map3HS.pdf\">PDF map</a>.");
+        });
+
+        GEvent.addListener(highlandp_marker, "click", function() {
+	   map.removeOverlay(activeRoute);
+
+	   map.addOverlay(hparkRoute);
+	   activeRoute = hparkRoute;	  
+
+	   map.panTo(highlandp);
+	   map.setZoom(13); 
+
+          highlandp_marker.openInfoWindowHtml("<div style=\"color:#000000;\"><b>Highland Park:</b><br>Recreate this fascinating hike with the attached</div> <a href=\"http://urbanhike.org/maps/Map2HP.pdf\">PDF map</a>.");
+        });
+
+        GEvent.addListener(troy_hill_marker, "click", function() {
+	   map.removeOverlay(activeRoute);
+
+	   map.addOverlay(mvaleRoute);
+	   activeRoute = mvaleRoute;	  
+
+	   map.panTo(troy_hill);
+	   map.setZoom(13); 
+
+          troy_hill_marker.openInfoWindowHtml("<div style=\"color:#000000;\"><b>Troy Hill/Millvale:</b><br>Recreate this fascinating hike with the attached</div> <a href=\"http://www.urbanhike.org/maps/Map5MV.pdf\">PDF map</a>.");
+        });
+
+	GEvent.addListener(braddock_marker, "click", function() {
+	   map.removeOverlay(activeRoute);
+
+          braddock_marker.openInfoWindowHtml("<div style=\"color:#000000;\"><b>Braddock:</b></div><br><a href=\"http://www.urbanhike.org/Braddock.html\">Full Description/Photos</a>");
+        });
+
+	GEvent.addListener(carnegie_marker, "click", function() {
+	   map.removeOverlay(activeRoute);
+
+          carnegie_marker.openInfoWindowHtml("<div style=\"color:#000000;\"><b>Carnegie:</b><br>Recreate this fascinating hike with the attached</div> <a href=\"http://urbanhike.org/maps/CarnegieMap.pdf\">PDF Map</a>");
+        });
+    }
+    else {
+     // NOT Compatible
+     document.backup.src="http://www.urbanhike.org/images/pasthikes.gif"
+    }
+
+  }
+    //]]>
+    </script>
+  </head>
+
+  <body onload="load()" onunload="GUnload()">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body bgcolor="#333333" text="#FFFFFF" background="images/map.gif" link="#99CC00" leftmargin="0" topmargin="0" rightmargin="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td background="images/photos.gif" height="104" valign="bottom">&nbsp;</td>
+  </tr>
+
+  <tr> 
+    <td background="images/logo_bkgd.gif" height="97" valign="bottom"><a href="index.html"><img src="images/logo.gif" width="536" height="97" border="0"></a></td>
+  </tr>
+  <tr> 
+    <td background="images/gray.gif" height="36" valign="bottom"><img src="images/links.gif" width="873" height="36" usemap="#Map" border="0"></td>
+  </tr>
+  <tr> 
+    <td valign="top"> 
+      <table border="0" cellspacing="0" cellpadding="10" align="center" width="70%">
+        <tr> 
+          <td valign="top">
+
+            <h1>Past Hikes</h1>
+            <p>We've been to a lot of places and seen a lot of stuff! Click on the
+    Urban Hike logos on the map to see some of our walking routes. Or click
+    below: </p>
+    <p><a href="http://urbanhike.org/maps/CarnegieMap.pdf">Carnegie</a></p>
+    <p><a href="http://urbanhike.org/HighlandPark.html">Highland Park</a></p>
+    <p><a href="http://urbanhike.org/Homestead.html">Homestead</a></p>
+    <p><a href="http://urbanhike.org/maps/oaklandscavhunt.pdf">Oakland</a></p>
+
+    <p><a href="http://urbanhike.org/maps/OakmontMap.pdf">Oakmont</a></p>
+    <p><a href="http://urbanhike.org/ObservatoryHill.html">Observatory Hill</a></p>
+    <p><a href="http://urbanhike.org/maps/ssscavhunt.pdf">South Side</a></p>
+    <p><a href="http://urbanhike.org/maps/SpringGardenMap.pdf">Spring Garden</a></p>
+    <p><a href="http://urbanhike.org/troyhill.htm">Troy Hill/Millvale</a></p>
+    <p><a href="http://urbanhike.org/Westendelliot.html">West End/Elliot</a></p>
+
+    </td>
+          <td valign="top">
+<div id="map" style="width: 463px; height: 368px"><img name="backup"></div>
+</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<map name="Map">
+  <area shape="rect" coords="139,1,289,33" href="upcoming.html" target="_self">
+  <area shape="rect" coords="308,1,428,36" href="past.html">
+
+  <area shape="rect" coords="441,2,615,33" href="newslinks.html" target="_self">
+  <area shape="rect" coords="622,2,759,33" href="journal.html">
+  <area shape="rect" coords="770,4,874,32" href="about.html" target="_self">
+</map>
+
+</body>
+
+  </body>
+</html>

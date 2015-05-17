@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE recipeml PUBLIC "-//FormatData//DTD RecipeML 0.5//EN"
+"http://www.formatdata.com/recipeml/recipeml/recipeml.dtd">
+<?xml-stylesheet href="format.xsl" type="text/xsl"?>
+<recipeml version="0.5">
+ <recipe><head><title>Lentil Soup</title></head>
+  <ingredients>
+   <ing><item>Dry Lentils, rinsed if you like</item><amt><qty>1</qty><unit>cups</unit></amt></ing>
+
+  </ingredients>
+  <directions>
+  </directions>
+ </recipe>
+</recipeml>

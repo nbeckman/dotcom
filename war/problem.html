@@ -1,0 +1,351 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>Solutions to Problems</title><LINK href="style.css" type="text/css" rel="stylesheet"></head>
+	<body bottomMargin="0" leftMargin="0" background="background.jpg" topMargin="0" rightMargin="0"
+		marginwidth="0" marginheight="0">
+		<table height="143" cellSpacing="0" cellPadding="0" width="780" border="0">
+			<tr vAlign="top">
+				<td width="780">
+					<!----- Insert your logo below, or change templogotop.jpg to blanklogo.jpg if you do not know how to work with a graphics editor ------------------------------------------><IMG height="143" alt="" src="blanklogo.jpg" width="780" border="0">
+					<!----------------------------------------------------------------------></td>
+			</tr>
+		</table>
+		<table cellSpacing="0" cellPadding="0" width="100%" border="0">
+			<tr vAlign="top">
+				<td width="175">
+					<table cellSpacing="0" cellPadding="4" width="175" border="0">
+						<tr vAlign="top">
+							<td width="175">
+								<!------------------------ Menu section, links go below -----------------------------------------------------------------------------------------------------></td>
+						</tr>
+					</table>
+				</td>
+				<td width="510">
+					<table cellSpacing="5" cellPadding="5" width="510" border="0">
+						<tr vAlign="top">
+ 							<td width="510">
+								<!------------------------ Content zone, add your content below ---------------------------->
+								<center>
+									<h3>
+										Problems and Solutions</h3>
+								</center>
+								<P align="center">
+									<hr>
+								</P>
+								<P>When I encounter a frustrating computer problem for which internet help is hard to 
+								find, I will try to put the solution here.</P>
+
+<hr>
+<p></p>
+<strong>ThinkPad beeps</strong> The people at IBM/Lenovo, in their
+infinite wisdom, decided that the ThinkPad laptop should beep loudly
+at every possible moment. Not a normal windows alert, but rather some
+ridiculous system beep that is always much louder than your actual
+volume. We're not living in the 80s folks, it's time to phase out
+this computing appendage. Anywho, 
+<a href="http://www.intelliot.com/blog/2006/12/thinkpad-keyboard-beeps-fixed/">this
+blog</a> shows you how to get rid of the keyboard beep.
+
+
+<hr>
+<p></p>
+<strong>The Greek letter \Xi is showing up as an i in LaTeX!</strong>
+Annoying but true, this happened to me recently. Didn't find anything
+online. Looks like this may not be a very common problem, as it didn't
+seem to occur with any other Greek letters and only occurred for the
+capital \Xi, not the lowercase \xi. It turned out the problem only
+occurred because my \Xi was immediately proceeded by two non-breaking
+spaces, as in:
+
+<br>
+<div style="font-family:monospace; margin:1px; background-color: #DDDDDD;">
+~~\Xi
+</div>
+
+To get rid of the problem I simply inserted a real space between the
+non-breaking spaces and my Xi:
+
+<br>
+<div style="font-family:monospace; margin:1px; background-color: #DDDDDD;">
+~~ \Xi
+</div>
+
+I was unable to find the actual reason for this problem.
+
+
+<hr>
+<p></p>
+<strong>Creating an Eclipse Update Site with Source Code</strong>
+For the full details on this problem and its solution, please
+see <a href="http://nolacoaster.livejournal.com/115522.html">this
+blog post</a>.
+
+<hr>
+<p></p>
+<strong>Select/Show/Reveal Java code in the Eclipse Java Editor</strong>
+This one was really frustrating! Here's what I wanted to do: I wrote
+my own Eclipse plugin and it deals with IJavaElements and ASTNodes, that
+is, classes from the JDT framework. I had my own tree view, and I wanted
+to make it so that if a user double-clicked an item in the TreeViewer
+then that Java element would show up in the Java editor. Turns out
+all of this good stuff is in the org.eclipse.jdt.ui.JavaUI class. Here's
+how I did it:
+
+<br>
+<div style="font-family:monospace; margin:1px; background-color: #DDDDDD;">
+IJavaElement element_which_was_selected;
+JavaUI.openInEditor(element_which_was_selected, true, true);<br>
+</div>
+
+<p>
+The first <b>true</b> means, activate the editor, and the second
+<b>true</b> means "reveal" this element. In other words, take me
+to the line where it is located an highlight it. Seems easy in
+hindsight!
+
+<hr>
+<p></p>
+<strong>Cygwin/Ocaml/X11: ld: cannot find -lX11</strong>
+I was attempting to use the <a href="http://caml.inria.fr/pub/docs/manual-ocaml/libref/Graphics.html">Graphics</a>
+module in Ocaml to create some simple graphs. I am using Cygwin, and I have X11 installed, but apparently not the
+X11 development package, as I found out later. I followed their instructions to build a new top-level with
+the graphics dynamically linked library built in. To do this, you type,
+<br>
+<div style="font-family:monospace; margin:1px; background-color: #DDDDDD;">
+ocamlmktop -o mytop graphics.cma<br>
+</div>
+<br>
+Unfortunately, this gave me the following error:<br>
+<div style="font-family:monospace; margin:1px; background-color: #DDDDDD;">
+ld: cannot find -lX11<br>
+</div>
+<br>
+The entire message was a bit longer because it gave me the full path of my
+linker. At this point, I didn't know where the error was; was this a general
+unix problem? A cygwin problem? Or a problem with my Ocaml setup. As it
+turned out, while I had X11, I did not have the X11 development package in
+cygwin! The absence of this package was verified by examining the
+/usr/X11R6/lib directory, and seeing the absence of any file like, libX11.so.
+To fix the problem, all I had to do was go to the cygwin setup application,
+look through the list of packages to find one named libX11-devel, which was
+inside the X11 category, and installing it. After this, everything worked
+perfectly. 
+
+<hr>
+<p></p>
+<strong>LaTeX: Some Font Shapre Were Unavailable</strong>
+During a paper I wrote, there was a section where I had curly braces
+('{' and '}') inside of a the <tt>\texttt</tt> tag. Unfortunately, and
+for these characters only, the curly braces were not printing in a monospace
+font. Moreover, when running LaTeX, I got two errors:
+<br>
+<div style="font-family:monospace; margin:1px; background-color: #DDDDDD;">
+LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined<br>
+(Font)              using `OMS/cmsy/m/n' instead<br>
+(Font)              for symbol `textbraceleft' on input line 743.
+</div>
+and
+<div style="font-family:monospace; margin:1px; background-color: #DDDDDD;">
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+</div>
+Didn't know what to do! Unfortunately, the "some fonts shapes not available"
+message can occur for many reasons. In my case, adding the additional
+directive,
+<br>
+<div style="font-family:monospace; margin:1px; background-color: #DDDDDD;">
+\usepackage[T1]{fontenc}
+</div>
+Fixed all my problems. Hooray!
+<hr>
+<p></p>
+<strong>Eclipse and 64bit Linux</strong>
+I have run into this problem <i>twice</i> now and figured I'd better
+write it down before I forget again. The combination of 64 bit Linux,
+64 bit Java and 64 bit Eclipse can get pretty hairy. Often times I have
+had them not work together, and Eclipse with crash on start-up. This
+is usually accompagnied by strange error messages in my log file, for 
+example,
+<br>
+<div style="font-family:monospace;">
+!ENTRY org.eclipse.osgi 4 0 2007-09-26 14:29:45.075
+!MESSAGE Shutdown error
+!STACK 1
+java.lang.InternalError
+	at java.util.zip.Inflater.end(Native Method)
+	at java.util.zip.Inflater.end(Inflater.java:310)
+	at java.util.zip.ZipFile.close(ZipFile.java:488)
+</div>
+<br>
+etc., with tons of ugly other stuff. Here's what has worked for me: If you have
+64 bit Linux, use 64 bit Eclipse and the 64 bit Java JRE. (Note,
+the first link for downloading Eclipse is not for the 64 bit version.) Then,
+play around by trying out different versions of the 64 bit Java JRE & Eclipse
+until the whole thing works. This sounds strange, but almost always
+having the newest one of each will fix your problem.
+
+
+<hr>
+<P></P>
+<strong>MikTeX Include Directory</strong>
+(Thanks to <a href="http://www.cs.cmu.edu/~donna/">Donna</a> for 
+this one!) Here's how you get MikTeX to look in a 
+particular directory for the files:<br>
+
+Instead of using TEXINPUTS, MikTeX uses the command line option 
+"-include-directory=foo" to prepend foo to the search path.
+<p/> 
+
+<hr>							
+<P></P>
+<strong>LaTeX: Using the \Box and \Diamond Symbols</strong>
+I needed the Box and Diamond symbols for use in typsetting some work
+related to
+<a href="http://en.wikipedia.org/wiki/Modal_Logic">modal logic</a>. Most of
+the online symbol lists that you find say to use:
+<p>
+<SPAN STYLE="font-family: monospace;">
+\Box and \Diamond
+</span>
+<p>But I was getting the following error:
+<p>
+<SPAN STYLE="font-family: monospace;">
+LaTeX Error: Command \Diamond not provided in base LaTeX2e.
+</span>
+<p>What they don't tell you, but what I finally found in the
+<a href="http://www.ctan.org/tex-archive/info/symbols/comprehensive/symbols-a4.pdf">
+"List of every LaTeX symbol ever, even ones you would never, ever use"</a>
+is that for some of the basic symbols (i.e. ones not in AMS or stmaryrd) you
+<i>still</i> have to include an extra package. Put this at the top of your
+document, and everything will work:
+<p>
+<SPAN STYLE="font-family: monospace;">
+\usepackage{latexsym}
+</span>
+
+<hr>							
+<P></P>
+<strong>JUnit Within Ant Within Eclipse</strong>
+I've been trying to run an Ant build from within Eclipse that also runs
+some JUnit tests automatically. This is a common problem, but some of
+the solutions that I found weren't working. Anyway, 
+<a href="http://www.ryanlowe.ca/blog/archives/001038_junit_ant_task_doesnt_work_in_eclipse.php">
+this blogger</a> had a solution that worked. 
+
+<hr>							
+<P></P>
+<strong>Emacs: Get Rid of DOS Newlines</strong>
+Since UNIX and Windows both have different ways of representing a newline,
+I find that sometimes my scripts edited on a Windows machine will not run
+on a UNIX machine because there is an additional character on each line. 
+Long story short, if UNIX complains about 
+<SPAN STYLE="font-family: monospace;">'^M'</span> you are in all likelyhood
+having the exact same problem. Here is how I get rid of it using emacs. I
+admit, this is not the fastest way to do it:
+<p>
+<SPAN STYLE="font-family: monospace;">
+C-x RET c unix RET C-x C-f foobar.txt 
+</span>
+<p>
+This changes emacs' mode so that when it opens up files, it will open them in
+UNIX mode. Then, the sequence of commands after the second return just opens
+up your file. You can then see the 
+<SPAN STYLE="font-family: monospace;">'^M'</span> characters. I usually just
+delete them by hand, but you can also do a regexp replace. (To search for 
+this character, (after you are in search mode) you have to type 
+<SPAN STYLE="font-family: monospace;">^Q ^M</span> The first command puts you
+in quote mode, meaning that the next thing you type will be exactly what it
+searches for.
+
+<hr>							
+<P></P>
+<strong>Unix: Add DIR to PATH</strong>
+I can never remember how to do this. You have two choices depending on your
+shell. (Well okay, there are more choices, but who uses those other shells?)
+<P><strong>Bash:</strong>
+<SPAN STYLE="font-family: monospace;">
+PATH="$PATH:/new_path_dir"; export PATH</span>
+<P><strong>Tcsh:</strong>
+<SPAN STYLE="font-family: monospace;">
+set path = ( $path /new_path_dir )
+</span>
+								<p>
+								<hr>
+								<P></P>
+<strong>Windows && Emacs && ISpell: </strong> I had emacs for windows,
+and I wanted a spellchecker. It took me a short while to find which
+files to install but I settled on Ispell, and this prepackaged Windows
+version: <a href="http://www.luziusschneider.com/SpellerHome.htm">http://www.luziusschneider.com/SpellerHome.htm</a>. After
+all that, I had to add ispell to my PATH in windows. Now I encountered
+my first tricky problem. When I ran Ispell from emacs, it would tell
+me that the dictionary at 'C:/usr/local/english.hash' could not be
+found. No kidding, that's not where my dictionary is. However, just
+selecting the 'Change Deafult Dictionary' option would not fix my
+problem. For some reason, even when I typed in the full path of my
+english.hash file, it would not accept my input. Finally I found a
+solution: In my '.emacs' file (Which goes in whatever directory the
+HOME variable points to.) I had to put the following line:
+								<P><SPAN STYLE="font-family: monospace;">
+								(setq ispell-extra-args <br>'("-dC:/ispell/english/english.hash"))</span>
+								<p>
+								This tells emacs that when it runs the ispell.exe executable, it has to run it with the given command line options. That particular option directs it towards the default dictionary file to use. Kind of bogus, but I just wanted to be able to spellcheck right away!
+
+<p>
+<strong>Update!</strong> Wow, I definitely don't do it this way
+anymore. Currently I use <a href="http://www.cygwin.com">cygwin</a>
+as my command-line. I tell the Cygwin package manager to install
+<i>aspell</i>, the ispell replacement, and then you just have to
+tell Emacs that ispell should be aspell, by putting the following
+command in your .emacs:
+<br>
+<div style="font-family:monospace; margin:1px; background-color: #DDDDDD;">
+(setq-default ispell-program-name "aspell")
+</div>
+
+<HR>
+<p></P>
+<strong>ML Comments</strong> A comment in ML has the following form:
+<P><SPAN STYLE="font-family: monospace;">
+(* Here is a comment<br>
+and here is the end *)
+</span>
+<p>
+This information was surprisingly difficult to find on the web.
+
+								<BR>
+								<BR>
+								<BR>
+								<BR>
+								<BR>
+								<BR>
+								<BR>
+								<BR>
+								<BR>
+								<BR>
+								<BR>
+								<BR>
+								<BR>
+								<BR>
+								<BR>
+								<BR>
+								<BR>
+								<BR>
+								<!------------------------------------------------------------------------------------------>
+								<p align="right"><a href="http://www.steves-templates.com" target="_blank"></a></p>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-10862021-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+	</body>
+</html>

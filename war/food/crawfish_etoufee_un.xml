@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE recipeml PUBLIC "-//FormatData//DTD RecipeML 0.5//EN"
+"http://www.formatdata.com/recipeml/recipeml.dtd">
+<recipeml version="0.5">
+ <recipe><head><title>Crawfish Etouffe</title></head>
+  <ingredients>
+   <ing><item>Crawfish Tails</item><amt><qty>1</qty><unit>lb</unit></amt></ing>
+
+   <ing><item>Salt</item><amt><qty>1</qty><unit>tsp</unit></amt></ing>
+
+   <ing><item>Pepper</item><amt><qty>1/2</qty><unit>tsp</unit></amt></ing>
+
+   <ing><item>Paprika</item><amt><qty>1/8</qty><unit>tsp</unit></amt></ing>
+
+   <ing><item>Butter</item><amt><qty>1/2</qty><unit>stick</unit></amt></ing>
+
+   <ing><item>Chopped Yellow Onion</item><amt><qty>1</qty></amt></ing>
+
+   <ing><item>Garlic clove, minced</item><amt><qty>1</qty></amt></ing>
+
+   <ing><item>Flour</item><amt><qty>1</qty><unit>tsp</unit></amt></ing>
+
+   <ing><item>Water</item><amt><qty>1</qty><unit>cup</unit></amt></ing>
+
+   <ing><item>Chopped Green Onion</item><amt><qty>1/2</qty><unit>cup</unit></amt></ing>
+
+   <ing><item>Chopped parlsey</item><amt><qty>1</qty><unit>tbsp</unit></amt></ing>
+
+   <ing><item>Grated Lemon Rind</item><amt><qty>1</qty><unit>tsp</unit></amt></ing>
+
+   <ing><item>Lemon Juice</item><amt><qty>1</qty><unit>tsp</unit></amt></ing>
+
+  </ingredients>
+  <directions>
+   <step>Season crawfish tails with salt pepper and paprika.</step>
+   <step>In a large skillet, heat butter; add crawfish tails and saute for 3 minutes.</step>
+   <step>Add yellow onion and garlic; cook 10 minutes stirring frequently.</step>
+   <step>Sprinking with flour and mix together.</step>
+   <step>Add water, green onions, parsley, lemon rind, lemon juice and hot sauce (if desired).</step>
+   <step>Simmer 10 minutes.</step>
+   <step>Serve over rice.</step>
+  </directions>
+ </recipe>
+</recipeml>

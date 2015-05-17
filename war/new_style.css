@@ -1,0 +1,77 @@
+body {
+  margin: 0px;
+}
+#black-header-bar {
+  height: 5em;
+  border: 0px;
+  background-color: rgb(0, 9, 46);
+  font-family: 'Arvo', serif;
+  color: rgb(255, 255, 181);
+  padding-left: 2em;
+  padding-top: 0.5em;
+}
+#black-header-bar a:link, 
+#black-header-bar a:active, 
+#black-header-bar a:visited {
+  color: rgb(255, 255, 181);
+  text-decoration: none;
+}
+#black-header-bar a:hover {
+  color: rgb(255, 255, 181);
+  text-decoration: underline;
+}
+.white-page-body {
+  font-family: 'Arimo', sans-serif;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+#left-nav {
+  float: left;
+  margin-bottom: 2em;
+  margin-right: 2em;
+}
+/* For mobile screens make navbar full screen. */
+@media screen and (max-width : 700px) {
+  #left-nav {
+    width: 100%;
+    font-size: 140%;
+    text-align: center;
+  }
+  #left-nav li {
+    border-bottom: 1px solid rgb(0, 9, 46);
+    padding: 0.5em;
+  } 
+}
+#left-nav a:link, a:visited, a:active {
+  color: black;
+  text-decoration: none;
+}
+#left-nav a:hover {
+  color: black;
+  text-decoration: underline;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.page-content {
+  line-height: 130%;
+  width: 60%;
+}
+/* For mobile screens go full width. */
+@media screen and (max-width : 700px) {
+  .page-content {
+    line-height: 130%;
+    width: auto;
+  }
+}
+.page-content a:link, 
+.page-content a:visited,
+.page-content a:active {
+  color: rgb(0, 9, 46);
+}
+.page-content a:hover {
+  color: rgb(255, 255, 181);
+  background-color: rgb(0, 9, 46);
+}

@@ -1,0 +1,205 @@
+<html>
+<head>
+<style type="text/css">
+
+body {
+  background-color:#151515;
+  color:#808080;
+}
+
+p {
+  background-color:#404040;
+  color:CCFFCC;
+  font-size:14;
+  font-weight:bold;
+  width:65%;
+}
+
+h2 {
+  font-family:sans-serif;
+}
+
+h3 {
+  font-family:sans-serif;
+}
+
+table {
+  width:85%;
+  background-color:#889944;
+}
+
+td {
+  background-color:#AAAAFF;
+  color:black;
+  font-size:12;
+}
+
+td.first {
+  font-family:monospace;
+  width:10%;
+}
+
+td.check {
+  width:2%;
+}
+
+td.cat {
+  width:8%;
+}
+
+td.true {
+  background-color:#0000BB;
+}
+
+</style>
+
+<title>A List of Concurrent Java Programs</title>
+</head>
+
+<body>
+<h2>Concurrent Java Programs and Benchmarks</h2>
+
+<p>This page presents a (ideally) ever-growing list of concurrent, open-source
+Java programs that I have found available on the Internet. The plan is to
+classify them according to attributes that are both of general interest
+(e.g., lines of source) and those that are specific to my own research interests.
+It is my belief that this list should be helpful for those attempting to do
+programming language reseach on concurrent, Java-like languages who are in need
+of suitable examples and benchmarks.
+</p>
+
+<h3>Categories</h3>
+<table style="width:30%;">
+  <tr>
+    <td>Toy</td><td>This program is (in my opinion) a toy example.</td>
+  </tr>
+  <tr>
+    <td>Emb!</td><td>This program is embarassingly parallel, requiring no
+                     or little synchronization.</td>
+  </tr>
+  <tr>
+    <td>States</td><td>This program has some state-machine style behavior</td>
+  </tr>
+  <tr>
+    <td>Constructs</td><td>Synchronization constructs used. Includes <i>Syn</i> (synchronized), <i>WNJ</i> (wait/notify/join), <i>J5C</i> (Java5 Concurrency Libraries) and <i>Cust</i> (custom synchronization primitives).</td>
+  </tr>
+</table>
+
+<h3>The List</h3>
+<table>
+  <tr style="font-weight:bold;">
+    <td>Name</td>
+    <td class="check">Toy</td>
+    <td class="check">Emb!</td>
+    <td class="check">States</td>
+    <td class="cat">Constructs</td>
+    <td class="cat">Lines</td>
+    <td>Source/Citation</td>
+    <td>Cached Copy/Implementation</td>
+    <td style="width:40%;">Notes</td>
+  </tr>
+  <tr>
+    <td class="first">Chat</td>
+    <td class="true"/>
+    <td/>
+    <td class="true"/>
+    <td>Syn, WNJ</td>
+    <td>622</td>
+    <td><a href="http://math.hws.edu/eck/cs124/s06/lab11/index.html">Original (Incomplete)</a></td>
+    <td><a href="concurrent/chat.zip">Cached (Incomplete)</a>
+    <td>This is a much more realistic appliction than the others. Unfortunately, it
+    was written as an assignment for a lab and is therefore incomplete, however
+    making it run is really easy if you follow the directions on the lab page.
+    This is a GUI application that runs over the network. Different threads
+    exist to listen to the network and open up connections. I have found two
+    race conditions in this program.
+  </tr>
+  <tr>
+    <td class="first">Miasma.java</td>
+    <td class="true"/>
+    <td/>
+    <td/>
+    <td>Syn, WNJ</td>
+    <td>365</td>
+    <td><a href="http://rsb.info.nih.gov/miasma/Miasma.java">Original</a></td>
+    <td><a href="concurrent/Miasma.java">Cached</a>
+    <td>A simple applet that draws a plasma-like substance quickly. I'll try not
+    to post too many applets here because their synchronization behavior is usually
+    pretty similar, however this applet interestingly <i>waits</i> to generate
+    new data until a draw has occurred, so it may be interesting for that reason.
+	</td>  
+  </tr>
+  <tr>
+    <td class="first">Webserver.java</td>
+    <td class="true"/>
+    <td/>
+    <td/>
+    <td>Syn</td>
+    <td>155</td>
+    <td><a href="http://www.cs.cmu.edu/~aldrich/papers/scp-camera.pdf">Aldrich et al.</a></td>
+    <td><a href="concurrent/Webserver.java">Local</a>
+    <td>A simple program with "web server-like" concurent behavior. Writer thread
+        writes numbers to a hash table while readers remove them. A true
+	producer/consumer example, except that get from the hash table could in
+	theory insert a new element, although this should not happen here.
+	Rewritten to use generics. Because the paper
+	describes the removal of unncessary synchronization, most methods are
+	synchronized.
+	</td>
+  </tr>
+  <tr>
+    <td class="first">DiningPhilosophers.ajava</td>
+    <td class="true"/>
+    <td/>
+    <td class="true"/>
+    <td>Cust</td>
+    <td>138</td>
+    <td><a href="http://www.cs.bris.ac.uk/Teaching/Resources/MR09/lectures/mk6/img15.htm">Description</a></td>
+    <td><a href="concurrent/DiningPhilosophers.ajava">Local</a></td>
+    <td>This implementation actually uses the 'atomic' construct, suitable for
+        use in implementations of transactional memory like 
+	<a href="http://wasp.cs.washington.edu/wasp_atomjava.html">AtomJava</a>.
+	Since AtomJava does not have 'retry,' busy waiting is used. 
+	Otherwise, this is an implementation of the standard dining philosophers
+	problem. </td>
+  </tr>
+  <tr>
+    <td class="first">pizzaDemo2.java</td>
+    <td class="true"/>
+    <td/>
+    <td/>
+    <td>Syn</td>
+    <td>369</td>
+    <td><a href="http://www.ecst.csuchico.edu/~gmurray/pizzaDemo2.java">Original</a></td>
+    <td><a href="concurrent/pizzaDemo2.java">Cached Copy</a></td>
+    <td>Applet. Not a strict producer/consumer. Customer thread writes to pizza
+        storage
+        shared object. Also, modifier methods of shared object call notify,
+	presumably for some applet functionality which I don't understand.
+        Wait is never called by the user's code.</td>
+  </tr>
+</table>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<p>PS. This page is pretty ugly! It's CSS gone awry...</p>
+
+</body>
+
+</html>

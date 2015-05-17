@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE recipeml PUBLIC "-//FormatData//DTD RecipeML 0.5//EN"
+"http://www.formatdata.com/recipeml/recipeml.dtd">
+<?xml-stylesheet href="format.xsl" type="text/xsl"?>
+<recipeml version="0.5">
+ <recipe><head><title>Pepper Steak</title></head>
+  <ingredients>
+   <ing><item>Green and/or red peppers, sliced into thin strips</item><amt><qty>2</qty></amt></ing>
+
+   <ing><item>Chopped onion</item><amt><qty>1/2</qty><unit>cup</unit></amt></ing>
+
+   <ing><item>Cloves of garlic, minced</item><amt><qty>2</qty></amt></ing>
+
+   <ing><item>Cooking oil</item><amt><qty>1</qty><unit>tbsp</unit></amt></ing>
+
+   <ing><item>Beef top or round steak (Something you might use for stir-fry)</item><amt><qty>3/4</qty><unit>lb</unit></amt></ing>
+
+   <ing><item>Salt</item><amt><qty>1</qty><unit>dash</unit></amt></ing>
+
+   <ing><item>Beef broth</item><amt><qty>3/4</qty><unit>cup</unit></amt></ing>
+
+   <ing><item>Dried oregano</item><amt><qty>1/2</qty><unit>tsp</unit></amt></ing>
+
+   <ing><item>Chopped Tomatoes</item><amt><qty>2</qty></amt></ing>
+
+  </ingredients>
+  <directions>
+   <step>Cook peppers, onion and garlic in a large skillet 4 minutes or so, so that it is still somehwhat crisp.</step>
+   <step>Remove vegetables from skillet, put them aside in a bowl.</step>
+   <step>Put meat in the skillet, sprinkle with salt and cook over medium-high heat until meat is brown (4 minutes or so).</step>
+   <step>Move meat to one side of the skillet, and to the other side add oregano, and beef broth. Heat to boiling. Cook for about 3 minutes.</step>
+   <step>Add vegetables and the tomatoes (which until now you have not used!) and heat until the whole thing is warm. Serve it all together, preferably over rice!</step>
+  </directions>
+ </recipe>
+</recipeml>
